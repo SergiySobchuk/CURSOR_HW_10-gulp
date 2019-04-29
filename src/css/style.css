@@ -1,0 +1,29 @@
+header {
+  padding: 10px;
+  background-color: #e9d250; }
+
+footer {
+  padding: 10px;
+  background-color: #7878b6; }
+
+body {
+  text-transform: uppercase; }
+
+ul {
+  padding: 0;
+  margin: 0;
+  border-radius: 30px;
+  transform: scale(0.5);
+  background: repeating-linear-gradient(red, yellow 10%, green 20%); }
+
+p {
+  animation-duration: 3s;
+  animation-name: slidein; }
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%; }
+  to {
+    margin-left: 0%;
+    width: 100%; } }
