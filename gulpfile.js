@@ -38,15 +38,6 @@ gulp.task('babelANDuglify', function(){
         .pipe(gulp.dest('dist/js'))
 })
 
-
-// gulp.task('scripts', function(){
-//     gulp.src('src/js/assets/*.js')
-//     .pipe(concat('main.min.js'))
-//     .pipe(uglify())
-//     .pipe(gulp.dest('src/js')) 
-
-// })
-
 gulp.task('sass', function(){
     gulp.src('src/scss/**/*.scss')
         .pipe(sass())
@@ -55,27 +46,6 @@ gulp.task('sass', function(){
             stream: true
         }))
 })
-
-// gulp.task('cleanCss', function(){
-//     gulp.src('src/css/*.css')
-//         .pipe(cleanCss())
-//             .pipe(gulp.dest('dist/css'))
-//         .pipe(browserSync.reload({
-//             stream: true
-//         }))
-// })
-
-// gulp.task('autoprefixer', function(){
-//     gulp.src('src/css/*.css')
-//         .pipe(autoprefixer({
-//             browsers: ['last 4 versions'],
-//             cascade: false       
-//         }))
-//         .pipe(gulp.dest('dist/css'))
-//         .pipe(browserSync.reload({
-//             stream: true
-//         }))
-// })
 
 gulp.task('cleanCssANDautoprefixer', function(){
     gulp.src('src/css/*.css')
@@ -86,17 +56,6 @@ gulp.task('cleanCssANDautoprefixer', function(){
         .pipe(cleanCss())
         .pipe(gulp.dest('dist/css'))
 })
-
-// gulp.task('imagemin', function(){
-//     gulp.src("src/img/*")
-//         .pipe(imageMin([
-//             pngQuant({quality: [0.3, 0.4], speed: 5})
-//         ]))
-//         .pipe(gulp.dest("dist/img"))
-//         .pipe(browserSync.reload({
-//             stream: true
-//         }))
-// })
 
 gulp.task('imageminANDcache', function(){
     gulp.src("src/img/*")
@@ -117,21 +76,7 @@ gulp.task('watch', ['browserSync', 'concat', 'sass'], function(){
     gulp.watch('src/*.html', browserSync.reload);
     gulp.watch('src/scss/**/*.scss', ['sass']);
     gulp.watch('src/js/assets/*.js', ['concat']);
-    // gulp.watch('src/*.js', browserSync.reload);
-    // gulp.watch('src/img/*', ['imageminANDcache']);
-    // gulp.watch('src/*.html', ['htmlmin']);
-    // gulp.watch('src/js/**/*.js', ['scripts']);
-    // gulp.watch('src/js/*.js', ['babel']);
-    // gulp.watch('src/css/assets/*.css', ['cleanCssANDautoprefixer']);
 })
 
 gulp.task('build', ['htmlmin', 'babelANDuglify', 'cleanCssANDautoprefixer', 'imageminANDcache']);
 gulp.task('default', ['imageminANDcache']);
-
-// ************architection example****************
-// 
-//  gulp.task('name-task', function(){
-//     gulp.src(sours-file)
-//     .pipe(gulpPlagin)
-//     .pipe(gulp.dest('destination-directory'));
-// })
